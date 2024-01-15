@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PeopleController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,9 +17,13 @@ use App\Http\Controllers\PeopleController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('musik/54344/people/all', [PeopleController::class, 'index']);
-Route::get('musik/54344/people/{id}', [PeopleController::class, 'show']);
-Route::delete('musik/54344/people/delete/{id}', [PeopleController::class, 'destroy']); 
-// Route::get('musik/54344/people/{id}', [PeopleController::class, 'show']);
-// Route::get('musik/54344/people/{id}', [PeopleController::class, 'show']);
 
+Route::get('musik/54344/people/all', [PeopleController::class, 'index']);
+
+Route::get('musik/54344/people/{id}', [PeopleController::class, 'show']);
+
+Route::put('musik/54344/people/{id}/update', [PeopleController::class, 'update']);
+
+Route::delete('musik/54344/people/{id}/delete', [PeopleController::class, 'destroy']); 
+
+Route::post('musik/54344/people/create', [PeopleController::class, 'store']);
